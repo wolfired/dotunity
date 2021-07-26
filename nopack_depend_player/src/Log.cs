@@ -55,13 +55,14 @@ namespace com.wolfired.log
                 return;
             }
 
-            if ("" != this._logFile)
+            if (!String.IsNullOrEmpty(this._logFile))
             {
                 this._streamWriter.Close();
                 this._streamWriter = null;
             }
 
-            if ("" != logFile)
+
+            if (!String.IsNullOrEmpty(logFile))
             {
                 this._streamWriter = new StreamWriter(logFile, true);
                 this._streamWriter.AutoFlush = true;
@@ -132,13 +133,14 @@ namespace com.wolfired.log
 
             this._isCaptureConsoleOutput = captureOrNot;
 
+            Console.Out.Close();
             if (this._isCaptureConsoleOutput)
             {
                 Console.SetOut(this);
             }
             else
             {
-                Console.SetOut(Console.Out);
+                Console.SetOut(new StreamWriter(Console.OpenStandardOutput()));
             }
         }
 

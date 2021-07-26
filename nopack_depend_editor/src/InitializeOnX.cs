@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 using UnityEngine;
 using UnityEditor;
@@ -12,24 +13,24 @@ namespace com.wolfired
     {
         static InitializeOnX()
         {
-            Debug.Log("InitializeOnLoad");
+            LogHandler.ins.ReplaceDefaultLogHandler(true);
+            LogHandler.ins.LogToFile(Application.dataPath + "/../logs.txt");
+            LogWriter.ins.CaptureConsoleOutput(true);
+
+            Debug.Log("InitializeOnLoadd");
 
             AssemblyReloadEvents.beforeAssemblyReload += () =>
             {
+                Debug.Log("AssemblyReloadEvents.beforeAssemblyReload");
+
                 LogHandler.ins.ReplaceDefaultLogHandler(false);
                 LogHandler.ins.LogToFile("");
                 LogWriter.ins.CaptureConsoleOutput(false);
-
-                Debug.Log("AssemblyReloadEvents.beforeAssemblyReload");
             };
 
             AssemblyReloadEvents.afterAssemblyReload += () =>
             {
                 Debug.Log("AssemblyReloadEvents.afterAssemblyReload");
-
-                LogWriter.ins.CaptureConsoleOutput(true);
-                LogHandler.ins.LogToFile(Application.dataPath + "/../logs.txt");
-                LogHandler.ins.ReplaceDefaultLogHandler(true);
             };
         }
 

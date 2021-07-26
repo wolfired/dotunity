@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 # root=$(dirname $(readlink -f $0)) # Used in Linux
-root=E:/workspace_git/dotunity # Used in Window
+root=E:/workspace_git/dotunity # Used in Window, hardcode
 root_name=$(basename $root)
 
 source $root/libdot.sh
@@ -12,20 +12,18 @@ path_sln=$root
 name_sln=$root_name
 path_out_dot=${path_out_dot:-$path_sln/out_dot}
 path_out_u3d=${path_out_u3d:-$path_sln/out_u3d}
+path_u3dprj=${path_u3dprj:-'E:/workspace_u3d/addrdst'}
 
 
 
 #---------------------------------------------------------------
-#                                                        U3D项目
-path_u3dprj=E:/workspace_u3d/addrsrc
+#                                                    创建U3D项目
 # UnityCreateProject $path_u3dprj/log_$(date +%y%m%d_%H%M%S).txt $path_u3dprj
 
 
 
 #---------------------------------------------------------------
 #                                                 Dotnet解决方案
-# DotSolutionClean $path_sln $path_out_dot
-DotSolutionDelete $path_sln $path_out_dot
 DotSolutionNew $path_sln $name_sln
 
 
@@ -33,8 +31,6 @@ DotSolutionNew $path_sln $name_sln
 #---------------------------------------------------------------
 #         Dotnet项目, 负责把U3D项目工程文件转换成Dotnet项目工程文件
 name_dotprj=u3dcsprojcloner
-# DotProjectClean $path_sln/$name_dotprj
-DotProjectDelete $path_sln/$name_dotprj
 DotProjectNew $path_sln console "net5.0" $path_sln/$name_dotprj
 DotProjectAddPackages $path_sln/$name_dotprj Mono.Options
 DotBuild $path_sln/$name_dotprj $path_out_dot
@@ -44,8 +40,6 @@ DotBuild $path_sln/$name_dotprj $path_out_dot
 #---------------------------------------------------------------
 #                                   Dotnet项目, U3D插件, 无包依赖
 name_dotprj=nopack_depend_player
-# DotProjectClean $path_sln/$name_dotprj
-DotProjectDelete $path_sln/$name_dotprj
 DotProjectNew $path_sln classlib "netstandard2.0" $path_sln/$name_dotprj $path_u3dprj
 
 $path_out_dot/u3dcsprojcloner.exe \
@@ -62,8 +56,6 @@ $path_out_dot/u3dcsprojcloner.exe \
 #---------------------------------------------------------------
 #                             Dotnet项目, U3D编辑器插件, 无包依赖
 name_dotprj=nopack_depend_editor
-# DotProjectClean $path_sln/$name_dotprj
-DotProjectDelete $path_sln/$name_dotprj
 DotProjectNew $path_sln classlib "netstandard2.0" $path_sln/$name_dotprj
 DotProjectAddPackages $path_sln/$name_dotprj Mono.Options
 DotProjectAddReference $path_sln/$name_dotprj $path_sln/nopack_depend_player
@@ -95,8 +87,6 @@ DotDLLsSrc2Dst $path_out_dot $path_u3dprj/Assets/Plugins nopack_depend_player tr
 #---------------------------------------------------------------
 #                                            Dotnet项目, U3D插件
 name_dotprj=pack_depend_player
-# DotProjectClean $path_sln/$name_dotprj
-DotProjectDelete $path_sln/$name_dotprj
 DotProjectNew $path_sln classlib "netstandard2.0" $path_sln/$name_dotprj $path_u3dprj
 DotProjectAddReference $path_sln/$name_dotprj $path_sln/nopack_depend_player
 
@@ -114,8 +104,6 @@ $path_out_dot/u3dcsprojcloner.exe \
 #---------------------------------------------------------------
 #                                       Dotnet项目, U3D编辑器插件
 name_dotprj=pack_depend_editor
-# DotProjectClean $path_sln/$name_dotprj
-DotProjectDelete $path_sln/$name_dotprj
 DotProjectNew $path_sln classlib "netstandard2.0" $path_sln/$name_dotprj $path_u3dprj
 DotProjectAddPackages $path_sln/$name_dotprj Mono.Options
 DotProjectAddReference $path_sln/$name_dotprj $path_sln/nopack_depend_player
