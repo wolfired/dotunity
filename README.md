@@ -6,30 +6,43 @@ Dotnet Unity Onekey Shellscript.
 
 * `2021.2.0a21`
 
-# Usage
+# Sample Scripts
 
-`addrsrc_*.sh` is a sample project.
+`sample/addrsrc_*.sh`, `sample/addrdst_*.sh` are samples.
 
-* New Project
+* `addrsrc_inc.sh`
 
-Copy `addrsrc_new.sh` and edit:
-
-```bash
-
-root=path to this project
-
-path_u3dprj=path to your unity project
-
-```
-
-* Build Project
-
-Copy `addrsrc_build.sh` and edit:
+settings:
 
 ```bash
-
-root=path to this project
-
-path_u3dprj=path to your unity project
-
+# path of this project
+root_path=
+# path of unity project you want to create
+path_u3dprj=
 ```
+
+* `addrsrc_new.sh`
+
+create a new unity project, and bind dotnet project to it.
+
+* `addrsrc_build.sh`
+
+build dotnet project, and copy dlls to unity project.
+
+* `addrsrc_clean.sh`
+
+clean dotnet project.
+
+* `addrsrc_delete.sh`
+
+delete dotnet project.
+
+# Sample Dotnet projects
+
+* `nopack_depend_player`, game logic, no unity package depend
+
+* `nopack_depend_editor`, unity editor helper, no unity package depend, depend on `nopack_depend_player`
+
+* `pack_depend_player`, game logic, depend unity packages, depend on `nopack_depend_player`
+
+* `pack_depend_editor`, unity editor helper, depend unity package, depend on `nopack_depend_player` `nopack_depend_editor` `pack_depend_player`
