@@ -119,7 +119,7 @@ DotDLLsSrc2Dst $path_out_dot $path_u3dprj/Assets/Plugins pack_depend_player true
 # TODO: edit DLLs' unity meta file
 # TODO: change 'isExplicitlyReferenced: 0'
 # TODO:     to 'isExplicitlyReferenced: 1'
-# TODO: or open unity, select the dll, in then dll inspector, uncheck 'Auto Reference'
+# TODO: or open unity, select the dll, in the dll inspector, uncheck 'Auto Reference'
 
 
 
