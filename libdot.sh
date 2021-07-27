@@ -52,7 +52,6 @@ function DotProjectNew() {
     local type_prj=${2:?"<Dotnet项目类型, classlib|console>"}
     local framework_prj=${3:?"<Dotnet项目框架, netstandard2.0|net5.0>"}
     local path_prj=${4:?"<Dotnet项目路径>"}
-    local path_u3dprj=${5:-} # [关联的U3D项目路径]
 
     local name_prj=$(basename $path_prj)
 

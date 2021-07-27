@@ -40,7 +40,7 @@ DotBuild $path_sln/$name_dotprj $path_out_dot
 #---------------------------------------------------------------
 #                                   Dotnet项目, U3D插件, 无包依赖
 name_dotprj=nopack_depend_player
-DotProjectNew $path_sln classlib "netstandard2.0" $path_sln/$name_dotprj $path_u3dprj
+DotProjectNew $path_sln classlib "netstandard2.0" $path_sln/$name_dotprj
 
 $path_out_dot/u3dcsprojcloner.exe \
 --cfsrc $path_u3dprj/Assembly-CSharp.csproj \
@@ -87,7 +87,7 @@ DotDLLsSrc2Dst $path_out_dot $path_u3dprj/Assets/Plugins nopack_depend_player tr
 #---------------------------------------------------------------
 #                                            Dotnet项目, U3D插件
 name_dotprj=pack_depend_player
-DotProjectNew $path_sln classlib "netstandard2.0" $path_sln/$name_dotprj $path_u3dprj
+DotProjectNew $path_sln classlib "netstandard2.0" $path_sln/$name_dotprj
 DotProjectAddReference $path_sln/$name_dotprj $path_sln/nopack_depend_player
 
 $path_out_dot/u3dcsprojcloner.exe \
@@ -104,7 +104,7 @@ $path_out_dot/u3dcsprojcloner.exe \
 #---------------------------------------------------------------
 #                                       Dotnet项目, U3D编辑器插件
 name_dotprj=pack_depend_editor
-DotProjectNew $path_sln classlib "netstandard2.0" $path_sln/$name_dotprj $path_u3dprj
+DotProjectNew $path_sln classlib "netstandard2.0" $path_sln/$name_dotprj
 DotProjectAddPackages $path_sln/$name_dotprj Mono.Options
 DotProjectAddReference $path_sln/$name_dotprj $path_sln/nopack_depend_player
 DotProjectAddReference $path_sln/$name_dotprj $path_sln/nopack_depend_editor

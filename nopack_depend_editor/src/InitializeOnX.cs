@@ -17,7 +17,7 @@ namespace com.wolfired
             LogHandler.ins.LogToFile(Application.dataPath + "/../logs.txt");
             LogWriter.ins.CaptureConsoleOutput(true);
 
-            Debug.Log("InitializeOnLoadd");
+            Debug.Log("InitializeOnLoad");
 
             AssemblyReloadEvents.beforeAssemblyReload += () =>
             {
