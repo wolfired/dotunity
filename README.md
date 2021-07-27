@@ -8,9 +8,10 @@ Dotnet Unity Onekey Shellscript.
 
 # Sample Scripts
 
-`sample/addrsrc_*.sh`, `sample/addrdst_*.sh` are samples:   
-`sample/addrsrc_*.sh` use for unity project exist   
-`sample/addrdst_*.sh` use for not exist   
+`sample/addrsrc_*.sh`, `sample/addrdst_*.sh` are samples.
+
+> `sample/addrsrc_*.sh`: use for unity project exist   
+> `sample/addrdst_*.sh`: use for not exist   
 
 * `addrsrc_inc.sh`
 
