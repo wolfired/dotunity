@@ -41,8 +41,8 @@ delete dotnet project.
 
 * `nopack_depend_player`, game logic, no unity package depend
 
-* `nopack_depend_editor`, unity editor helper, no unity package depend, depend on `nopack_depend_player`
+* `nopack_depend_editor`, unity editor helper, no unity package depend, depend `nopack_depend_player`
 
-* `pack_depend_player`, game logic, depend unity packages, depend on `nopack_depend_player`
+* `pack_depend_player`, game logic, depend unity packages, depend `nopack_depend_player`
 
-* `pack_depend_editor`, unity editor helper, depend unity package, depend on `nopack_depend_player` `nopack_depend_editor` `pack_depend_player`
+* `pack_depend_editor`, unity editor helper, depend unity package, depend `nopack_depend_player` `nopack_depend_editor` `pack_depend_player`
