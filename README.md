@@ -13,7 +13,7 @@ Dotnet Unity Onekey Shellscript.
 > `sample/addrsrc_*.sh`: use for unity project exist   
 > `sample/addrdst_*.sh`: use for not exist   
 
-* `addrsrc_inc.sh`: settings
+* `*_inc.sh`: settings
 
 ```bash
 # path of this project
@@ -22,13 +22,13 @@ root_path=
 path_u3dprj=
 ```
 
-* `addrsrc_new.sh`: create a new unity project, and bind dotnet project to it.
+* `*_new.sh`: create a new unity project, and bind dotnet project to it.
 
-* `addrsrc_build.sh`: build dotnet project, and copy dlls to unity project.
+* `*_build.sh`: build dotnet project, and copy dlls to unity project.
 
-* `addrsrc_clean.sh`: clean dotnet project.
+* `*_clean.sh`: clean dotnet project.
 
-* `addrsrc_delete.sh`: delete dotnet project.
+* `*_delete.sh`: delete dotnet project.
 
 # Sample Dotnet projects
 
